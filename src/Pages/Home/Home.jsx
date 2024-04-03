@@ -16,7 +16,7 @@ const Home = () => {
                         <div className='md:col-span-2 border'>
                               <h3 className="text-3xl">this is main container</h3>
                         </div>
-                        <div className='border'><RightSideNav/></div>
+                        <div><RightSideNav/></div>
                   </div>
             </div>
       );
