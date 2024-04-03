@@ -5,7 +5,7 @@ import Home from "../Pages/Home/Home";
 
 
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
       {
             path: "/",
             element: <Root />,
