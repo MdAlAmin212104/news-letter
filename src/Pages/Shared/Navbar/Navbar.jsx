@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Providers/Providers';
+import { signOut } from "firebase/auth";
 
 const Navbar = () => {
+
+      const { user, logOut } = useContext(AuthContext)
+      console.log(user);
+
+      const handleSingOut = () => {
+            logOut()
+                  .then()
+                  .catch()
+      }
+
+
       const nabLinks = <>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/about'>About</Link></li>
@@ -31,7 +44,14 @@ const Navbar = () => {
                   <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                   </div>
                   </div>
-                  <Link to='/login' className="btn">Login</Link>
+                        {user ? 
+                        <button onClick={handleSingOut} className='btn'>SING OUT</button>
+                              :
+                              <Link to='/login'>
+                                    <button className='btn'>Log in</button>
+                              </Link>
+                              
+                        }
             </div>
             </div>
       );
