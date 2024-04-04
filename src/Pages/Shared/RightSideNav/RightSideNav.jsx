@@ -2,15 +2,27 @@ import { FaFacebook, FaGithub, FaGoogle, FaInstagram, FaTwitter } from "react-ic
 import qZone1 from "../../../assets/qZone1.png"
 import qZone2 from "../../../assets/qZone2.png"
 import qZone3 from "../../../assets/qZone3.png"
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/Providers";
 
 
 
 const RightSideNav = () => {
+      const { googleSingIn } = useContext(AuthContext);
+
+      const handleGoogleLogin = () => {
+            googleSingIn()
+                  .then(result => console.log(result))
+                  .catch(error => console.error(error.message))
+      }
+
+
+
       return (
             <div>
                   <div className="p-4 ">
                         <h2 className="text-3xl">Login with</h2>
-                        <button className="btn btn-outline w-full my-4"><FaGoogle/> Login with Google</button>
+                        <button onClick={handleGoogleLogin} className="btn btn-outline w-full my-4"><FaGoogle/> Login with Google</button>
                         <button className="btn btn-outline w-full my-4"><FaGithub/> Login with Github</button>
                   </div>      
                   <div className="p-4">
