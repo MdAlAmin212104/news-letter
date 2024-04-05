@@ -8,7 +8,8 @@ import { AuthContext } from "../../../Providers/Providers";
 
 
 const RightSideNav = () => {
-      const { googleSingIn } = useContext(AuthContext);
+      const { googleSingIn, githubSingIn } = useContext(AuthContext);
+
 
       const handleGoogleLogin = () => {
             googleSingIn()
@@ -17,13 +18,19 @@ const RightSideNav = () => {
       }
 
 
+      const handleGitHubLogin = () => {
+            githubSingIn()
+                  .then(result => console.log(result))
+                  .catch(error => console.error(error.message))
+      }
+
 
       return (
             <div>
                   <div className="p-4 ">
                         <h2 className="text-3xl">Login with</h2>
                         <button onClick={handleGoogleLogin} className="btn btn-outline w-full my-4"><FaGoogle/> Login with Google</button>
-                        <button className="btn btn-outline w-full my-4"><FaGithub/> Login with Github</button>
+                        <button onClick={handleGitHubLogin} className="btn btn-outline w-full my-4"><FaGithub/> Login with Github</button>
                   </div>      
                   <div className="p-4">
                         <h2 className="text-3xl">Find Us</h2>
