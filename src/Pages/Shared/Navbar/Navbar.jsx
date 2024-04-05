@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/Providers';
-import { signOut } from "firebase/auth";
 
 const Navbar = () => {
 
       const { user, logOut } = useContext(AuthContext)
-      console.log(user);
 
       const handleSingOut = () => {
             logOut()

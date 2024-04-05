@@ -21,7 +21,9 @@ export const router = createBrowserRouter([
                   },
                   {
                         path: "/news/:id",
-                        element: <PrivateRoutes><News/></PrivateRoutes>
+                        element: <PrivateRoutes><News /></PrivateRoutes>,
+                        
+                        
                   },
                   {
                         path: '/login',
